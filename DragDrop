@@ -80,15 +80,7 @@ function savedata(evt){
  <input type="text" id="inputVal" class="form-control"/>
  <button  onclick="savedata(event)">Submit</button>
  <div id="data"></div>
-
  
-<p id="drag1"  draggable="true" ondragstart="drag(event)"></p>
-<p  id="drag2"  draggable="true" ondragstart="drag(event)"></p>
-<p  id="drag3"  draggable="true" ondragstart="drag(event)"></p>
-<p  id="drag3"  draggable="true" ondragstart="drag(event)"></p>
-<p  id="drag4"  draggable="true" ondragstart="drag(event)"></p>
-<p  id="drag5"  draggable="true" ondragstart="drag(event)"></p>
-<p  id="drag6"  draggable="true" ondragstart="drag(event)"></p>
 
 </body>
 </html>
