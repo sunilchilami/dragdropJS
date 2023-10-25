@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+#div1 {
+  width: 100px;
+  height: 250px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+  background-color:#fff;
+}
+#div2 {
+  width: 100px;
+  height: 250px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+  background-color:#fff;
+}
+#container {
+ background-color: coral;
+ padding:20px;
+ display:flex;
+ justify-content:space-around;
+ 
+}
+body{
+padding:20px;
+}
+</style>
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+
+ var arr = [];
+ var oldArr = [];
+ var pTag ;
+function savedata(evt){ 
+ let val = document.getElementById('inputVal').value;
+ 
+ 
+  oldArr.push([...arr]);
+  arr.push(val); 
+  for(var i=1;i<arr.length;i++){ 
+    pTag = `<p id='drag${i}' draggable='true' ondragstart='drag(event)'>${arr[i]}</p>`;
+    console.log("console.log(pTag);"+pTag);
+    document.getElementById('data').innerHTML=pTag;
+  }
+  console.log(pTag);
+    val="";
+  document.getElementById('inputVal').value='';
+
+} 
+
+</script>
+</head>
+<body>
+<p>Drag the text into the rectangle:</p>
+<div id="container">
+
+<div>To do
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+</div>
+</div>
+<div>Done
+<div id="div2"  ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+ </div>
+ </div>
+ <br/>
+ <input type="text" id="inputVal" class="form-control"/>
+ <button  onclick="savedata(event)">Submit</button>
+ <div id="data"></div>
+
+ 
+<p id="drag1"  draggable="true" ondragstart="drag(event)"></p>
+<p  id="drag2"  draggable="true" ondragstart="drag(event)"></p>
+<p  id="drag3"  draggable="true" ondragstart="drag(event)"></p>
+<p  id="drag3"  draggable="true" ondragstart="drag(event)"></p>
+<p  id="drag4"  draggable="true" ondragstart="drag(event)"></p>
+<p  id="drag5"  draggable="true" ondragstart="drag(event)"></p>
+<p  id="drag6"  draggable="true" ondragstart="drag(event)"></p>
+
+</body>
+</html>
+
